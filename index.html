@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazril - Portfolio Pelajar Akuntansi (Survival Theme)</title>
+    <!-- Memuat Tailwind CSS untuk styling yang cepat dan responsif -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Lucide Icons untuk ikon yang bersih -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Palet Biru Survival:
+           - #004488 (Navy Blue, Primary)
+           - #1E40AF (Dark Blue, Background Accent)
+           - #93C5FD (Light Blue, Highlight)
+           - #FFAA33 (Orange/Amber, Action/Survival Beacon)
+        */
+        :root {
+            --color-primary: #004488;
+            --color-accent: #FFAA33;
+            --color-text: #F0F8FF;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1a2b; /* Dark, almost black-blue background */
+            color: var(--color-text);
+            min-height: 100vh;
+        }
+
+        /* Custom style untuk memberikan nuansa "metal" atau "gear" */
+        .survival-card {
+            background-color: #1a2738; /* Slightly lighter card background */
+            border: 1px solid var(--color-primary);
+            box-shadow: 0 4px 12px rgba(0, 68, 136, 0.4);
+            transition: transform 0.3s ease;
+        }
+        .survival-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 68, 136, 0.6);
+        }
+
+        /* Custom Button - Sinyal Suar */
+        .survival-btn {
+            background-color: var(--color-accent);
+            color: #1a2738;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 170, 51, 0.5);
+        }
+        .survival-btn:hover {
+            background-color: #FFC066;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(255, 170, 51, 0.7);
+        }
+        
+        /* Memberi efek hover pada ikon */
+        .icon-hover-effect {
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .icon-hover-effect:hover {
+            color: var(--color-accent);
+            transform: scale(1.1);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigasi - Peta Navigasi -->
+    <header class="bg-blue-900/90 shadow-lg sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Nama - "Survival Log" -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-xl font-extrabold text-white tracking-widest uppercase flex items-center">
+                        <i data-lucide="compass" class="w-6 h-6 mr-2 text-yellow-300"></i>
+                        Nazril Survival Log
+                    </a>
+                </div>
+                <!-- Menu Navigasi - Responsif -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-blue-200 hover:text-white transition duration-200">Basecamp</a>
+                    <a href="#about" class="text-blue-200 hover:text-white transition duration-200">Riwayat Perjalanan</a>
+                    <a href="#skills" class="text-blue-200 hover:text-white transition duration-200">Kotak Peralatan</a>
+                    <a href="#portfolio" class="text-blue-200 hover:text-white transition duration-200">Log Eksplorasi</a>
+                    <a href="#contact" class="text-blue-200 hover:text-white transition duration-200">Sinyal Suar</a>
+                </nav>
+                <!-- Tombol Mobile Menu -->
+                <button id="mobile-menu-button" class="md:hidden text-white p-2 rounded-md hover:bg-blue-800 transition duration-200">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-900/95 py-2">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 w-full text-center">Basecamp</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 w-full text-center">Riwayat Perjalanan</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 w-full text-center">Kotak Peralatan</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 w-full text-center">Log Eksplorasi</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 w-full text-center">Sinyal Suar</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
+        
+        <!-- Bagian 1: HOME / BASECAMP -->
+        <section id="home" class="text-center pt-16 md:pt-24">
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
+                <!-- Kolom Kiri: Foto Profil (Placeholder) -->
+                <div class="relative w-40 h-40 md:w-56 md:h-56">
+                    <!-- Placeholder Foto "Survivor" -->
+                    <div class="w-full h-full rounded-full border-4 border-yellow-400 bg-gray-700 flex items-center justify-center overflow-hidden shadow-2xl">
+                        <!-- Gunakan URL gambar jika ada, atau biarkan placeholder -->
+                        <i data-lucide="user-square" class="w-24 h-24 text-blue-400"></i>
+                    </div>
+                    <!-- Badge Survival -->
+                    <span class="absolute bottom-0 right-0 p-2 bg-yellow-500 rounded-full text-xs font-bold text-gray-900 shadow-xl">
+                        SURVIVOR
+                    </span>
+                </div>
+
+                <!-- Kolom Kanan: Teks Perkenalan -->
+                <div class="md:text-left max-w-xl">
+                    <p class="text-xl text-blue-300 font-semibold mb-2">Selamat Datang di Basecamp Saya!</p>
+                    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight text-white mb-4">
+                        NAZRIL: AKUNTAN SIAP BERTARUNG.
+                    </h1>
+                    <p class="text-lg text-blue-200 mb-6">
+                        Status: <span class="font-bold text-yellow-400">PELAJAR</span> | SMK Dewi Sartika, Jurusan Akuntansi.
+                    </p>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Mengubah data mentah menjadi peta keuangan yang dapat dipercaya. Siap untuk eksplorasi proyek Anda selanjutnya dengan ketelitian dan ketahanan.
+                    </p>
+                    <a href="#skills" class="survival-btn px-8 py-3 rounded-lg inline-flex items-center">
+                        <i data-lucide="package-search" class="w-5 h-5 mr-2"></i>
+                        LIHAT KOTAK PERALATAN SAYA
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 2: ABOUT / RIWAYAT PERJALANAN -->
+        <section id="about" class="pt-16">
+            <h2 class="text-4xl font-bold text-center text-blue-400 mb-12 uppercase tracking-wider border-b-2 border-yellow-500 pb-2 inline-block mx-auto">
+                RIWAYAT PERJALANAN
+            </h2>
+            <div class="survival-card p-8 md:p-12 rounded-xl">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-semibold text-yellow-400 flex items-center">
+                        <i data-lucide="map-pin" class="w-8 h-8 mr-3"></i>
+                        SMK DEWI SARTIKA - JURUSAN AKUNTANSI
+                    </h3>
+                    <p class="text-gray-300 leading-relaxed text-lg">
+                        Perjalanan saya dimulai di SMK Dewi Sartika, di mana saya ditempa dalam ilmu Akuntansi. Saya belajar bahwa Akuntansi bukan hanya tentang angka, tetapi tentang **ketelitian ekstrem, manajemen sumber daya (uang), dan pengambilan keputusan strategis**—semua keterampilan inti seorang *survivor*. Saya memahami pentingnya 'Neraca' yang seimbang untuk 'bertahan hidup' di dunia bisnis.
+                    </p>
+                    
+                    <h4 class="text-2xl font-semibold text-blue-300 mt-8 mb-4 flex items-center">
+                        <i data-lucide="sparkles" class="w-6 h-6 mr-2"></i>
+                        Filosofi Survival Akuntansi
+                    </h4>
+                    <ul class="space-y-3 text-gray-400 list-disc list-inside">
+                        <li><span class="font-semibold text-white">Analisis Risiko:</span> Mampu mengidentifikasi potensi bahaya keuangan sebelum terjadi (Pencatatan Jurnal).</li>
+                        <li><span class="font-semibold text-white">Manajemen Logistik:</span> Mengatur arus kas dan aset secara efisien agar tidak kehabisan persediaan (Laporan Keuangan).</li>
+                        <li><span class="font-semibold text-white">Adaptasi Cepat:</span> Belajar dengan cepat mengikuti regulasi dan tren pasar yang berubah-ubah.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 3: SKILLS / KOTAK PERALATAN SURVIVAL -->
+        <section id="skills" class="pt-16">
+            <h2 class="text-4xl font-bold text-center text-blue-400 mb-12 uppercase tracking-wider border-b-2 border-yellow-500 pb-2 inline-block mx-auto">
+                KOTAK PERALATAN SURVIVAL
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                
+                <!-- Skill Card 1: Jurnal & Neraca (Kompas) -->
+                <div class="survival-card p-6 rounded-lg text-center">
+                    <i data-lucide="compass" class="w-12 h-12 text-yellow-400 mb-3 mx-auto icon-hover-effect"></i>
+                    <h3 class="text-xl font-bold mb-1 text-white">A. Dasar Akuntansi</h3>
+                    <p class="text-sm text-gray-400">Jurnal, Neraca Saldo, Laporan Keuangan.</p>
+                </div>
+
+                <!-- Skill Card 2: Spreadsheet (Pisau Lipat) -->
+                <div class="survival-card p-6 rounded-lg text-center">
+                    <i data-lucide="columns" class="w-12 h-12 text-blue-400 mb-3 mx-auto icon-hover-effect"></i>
+                    <h3 class="text-xl font-bold mb-1 text-white">B. Ms. Excel / Sheets</h3>
+                    <p class="text-sm text-gray-400">Data Entry Cepat, Fungsi Dasar (SUM, AVG).</p>
+                </div>
+                
+                <!-- Skill Card 3: Ketelitian (Lensa Pembesar) -->
+                <div class="survival-card p-6 rounded-lg text-center">
+                    <i data-lucide="search-check" class="w-12 h-12 text-yellow-400 mb-3 mx-auto icon-hover-effect"></i>
+                    <h3 class="text-xl font-bold mb-1 text-white">C. Ketelitian Data</h3>
+                    <p class="text-sm text-gray-400">Verifikasi Detail, Mencegah *Human Error*.</p>
+                </div>
+
+                <!-- Skill Card 4: Manajemen Waktu (Jam Tangan) -->
+                <div class="survival-card p-6 rounded-lg text-center">
+                    <i data-lucide="clock" class="w-12 h-12 text-blue-400 mb-3 mx-auto icon-hover-effect"></i>
+                    <h3 class="text-xl font-bold mb-1 text-white">D. Manajemen Waktu</h3>
+                    <p class="text-sm text-gray-400">Tepat Waktu, Prioritas Tugas (Deadline).</p>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Bagian 4: PORTFOLIO / LOG EKSPLORASI (Mock Data) -->
+        <section id="portfolio" class="pt-16">
+            <h2 class="text-4xl font-bold text-center text-blue-400 mb-12 uppercase tracking-wider border-b-2 border-yellow-500 pb-2 inline-block mx-auto">
+                LOG EKSPLORASI (Proyek)
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Proyek 1: Simulasi Jurnal (Pencatatan Sumber Daya) -->
+                <div class="survival-card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="book-open" class="w-8 h-8 text-yellow-400 mr-3"></i>
+                        <h3 class="text-2xl font-bold text-white">Studi Kasus Jurnal Penyesuaian</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Simulasi pencatatan transaksi untuk periode akhir bulan, termasuk penyesuaian aset dan kewajiban. Bertujuan melatih ketelitian dalam kondisi 'krisis' data.
+                    </p>
+                    <p class="text-sm text-blue-300 font-semibold">
+                        Keterampilan: Jurnal Umum, Jurnal Penyesuaian, Akurasi Data.
+                    </p>
+                </div>
+
+                <!-- Proyek 2: Template Budget (Peta Sumber Daya) -->
+                <div class="survival-card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="wallet" class="w-8 h-8 text-blue-400 mr-3"></i>
+                        <h3 class="text-2xl font-bold text-white">Template Anggaran Sederhana (Excel)</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Pembuatan *template* anggaran pribadi atau usaha kecil menggunakan Ms. Excel, dilengkapi rumus dasar untuk menghitung persentase pengeluaran.
+                    </p>
+                    <p class="text-sm text-blue-300 font-semibold">
+                        Keterampilan: Ms. Excel, Perencanaan Keuangan, Logika Formula.
+                    </p>
+                </div>
+                
+                <!-- Proyek 3: Tugas Sekolah Lain (Misalnya Presentasi) -->
+                <div class="survival-card p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <i data-lucide="megaphone" class="w-8 h-8 text-yellow-400 mr-3"></i>
+                        <h3 class="text-2xl font-bold text-white">Presentasi Manajemen Piutang</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Membuat materi dan presentasi tentang strategi meminimalkan risiko piutang macet (strategi 'bertahan' dari kerugian).
+                    </p>
+                    <p class="text-sm text-blue-300 font-semibold">
+                        Keterampilan: Komunikasi, Power Point, Analisis Risiko.
+                    </p>
+                </div>
+
+                <!-- Tambahkan lebih banyak proyek Akuntansi di sini! -->
+                
+            </div>
+        </section>
+
+        <!-- Bagian 5: KONTAK / SINYAL SUAR -->
+        <section id="contact" class="pt-16">
+            <h2 class="text-4xl font-bold text-center text-blue-400 mb-12 uppercase tracking-wider border-b-2 border-yellow-500 pb-2 inline-block mx-auto">
+                SINYAL SUAR
+            </h2>
+            <div class="survival-card p-8 md:p-12 rounded-xl max-w-2xl mx-auto text-center">
+                <p class="text-xl text-gray-300 mb-6">
+                    Sinyal sudah terkirim. Jika Anda membutuhkan ketelitian seorang akuntan yang siap bertahan dalam tekanan, hubungi saya.
+                </p>
+                
+                <form id="contact-form" class="space-y-4">
+                    <input type="text" placeholder="Nama Perekrut/Pihak Terkait" required class="w-full p-3 rounded-lg bg-gray-700 border border-blue-700 text-white placeholder-gray-400 focus:ring-yellow-500 focus:border-yellow-500">
+                    <input type="email" placeholder="Alamat Email Anda" required class="w-full p-3 rounded-lg bg-gray-700 border border-blue-700 text-white placeholder-gray-400 focus:ring-yellow-500 focus:border-yellow-500">
+                    <textarea placeholder="Pesan Darurat/Proyek yang Ingin Dikirim" rows="4" required class="w-full p-3 rounded-lg bg-gray-700 border border-blue-700 text-white placeholder-gray-400 focus:ring-yellow-500 focus:border-yellow-500"></textarea>
+                    
+                    <button type="submit" class="survival-btn w-full py-3 rounded-lg flex items-center justify-center">
+                        <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                        KIRIM SINYAL
+                    </button>
+                    
+                    <div id="contact-message" class="mt-4 p-3 rounded-lg bg-blue-900 text-green-300 hidden">
+                        Pesan terkirim! Basecamp Nazril akan segera merespons. Terima kasih!
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Link Sosial Media (Optional) -->
+            <div class="flex justify-center space-x-6 mt-10">
+                <a href="#" class="text-blue-400 hover:text-yellow-400 transition duration-300" target="_blank" title="LinkedIn">
+                    <i data-lucide="linkedin" class="w-8 h-8 icon-hover-effect"></i>
+                </a>
+                <a href="mailto:nazril.akuntansi@example.com" class="text-blue-400 hover:text-yellow-400 transition duration-300" title="Email">
+                    <i data-lucide="mail" class="w-8 h-8 icon-hover-effect"></i>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer - Area Pendaratan -->
+    <footer class="bg-blue-900/90 mt-16 py-6 text-center text-blue-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <p>&copy; 2024 Nazril Survival Log. Didesain dengan semangat ketahanan dan ketelitian.</p>
+            <p class="text-xs mt-1">Dibuat oleh seorang *Web Developer* senior (Anda), untuk seorang *Survivor* Akuntansi (Nazril).</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Interaktivitas -->
+    <script>
+        // 1. Inisialisasi Ikon Lucide
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            // 2. Logika Mobile Menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // 3. Logika Formulir Kontak
+            const contactForm = document.getElementById('contact-form');
+            const contactMessage = document.getElementById('contact-message');
+
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Di dunia nyata, Anda akan mengirim data ini ke server.
+                // Karena ini adalah demo, kita hanya tampilkan pesan sukses.
+                
+                // Sembunyikan tombol kirim dan tampilkan pesan sukses
+                contactForm.querySelector('button[type="submit"]').classList.add('hidden');
+                contactMessage.classList.remove('hidden');
+                
+                // Reset form setelah 3 detik
+                setTimeout(() => {
+                    contactMessage.classList.add('hidden');
+                    contactForm.querySelector('button[type="submit"]').classList.remove('hidden');
+                    contactForm.reset();
+                }, 4000);
+            });
+            
+            // 4. Smooth Scrolling untuk navigasi
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Tutup menu mobile setelah klik
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
